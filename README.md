@@ -198,3 +198,70 @@ dolares = str(dolares)
 
 print("Tienes $" + dolares + "dólares")
 ```
+
+# 14. **Construyendo el camino de un programa con condicionales**
+
+Los operadores condicionales nos permiten definir el comportamiento con nuevos caminos y reglas para una variable.
+
+El termino `pass` me ayuda a dejar en blanco el segmento dentro de cada parte del if.
+
+```python
+edad = int(input("Escribe tu edad"))
+
+if edad > 17:
+    # pass
+    print("Es mayor a 17")
+else:
+    # pass
+    print("No es mayor de 17")
+```
+
+# 15. **Varios países en mi conversor de monedas**
+
+Vamos a cambiar nuestro programa de conversión de monedas para agregar más opciones 😀 de países y tasas de cambio.
+
+```python
+menu = """"
+Bienvenido al conversor de monedas 💲 😀 💲
+
+1 - Pesos Colombianos
+2 - Pesos Argentinos
+3 - Pesos Mexicanos
+
+Elige una opción:
+"""
+opcion = int(input(menu))
+
+if opcion == 1:
+
+    pesos = input("Ingresa el valor en pesos: ")
+    pesos = float(pesos)
+    valor_dolar = 3875
+    dolares = pesos /  valor_dolar
+    dolares = round(dolares,2)
+    dolares = str(dolares)
+    print("Tienes $" + dolares + "dólares")
+
+elif opcion == 2:
+    pesos = input("Ingresa el valor en pesos Argentinos: ")
+    pesos = float(pesos)
+    valor_dolar = 65
+    dolares = pesos /  valor_dolar
+    dolares = round(dolares,2)
+    dolares = str(dolares)
+    print("Tienes $" + dolares + "dólares")
+
+elif opcion == 3:
+    
+    pesos = input("Ingresa el valor en pesos Méxicanos: ")
+    pesos = float(pesos)
+    valor_dolar = 24
+    dolares = pesos /  valor_dolar
+    dolares = round(dolares,2)
+    dolares = str(dolares)
+    print("Tienes $" + dolares + "dólares")
+else:
+    print("Ingresa una opción correcta")
+```
+
+# 16. **Aprendiendo a no repetir código con funciones.**
