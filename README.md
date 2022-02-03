@@ -265,3 +265,216 @@ else:
 ```
 
 # 16. **Aprendiendo a no repetir código con funciones.**
+
+```python
+def imp_mensaje():
+    print('Mensaje especial: ')
+    print('!Estoy aprendiendo a usar funciones¡: ')
+
+imp_mensaje()
+imp_mensaje()
+imp_mensaje()
+```
+
+# 17. **Modularizando nuestro conversor de monedas**
+
+Vamos a poner en practica el diseño de funciones.
+
+Con la palabra reservada `return` podemos guardar el resultado de una función en una nueva variable.
+
+```python
+def sum(a,b):
+    print('Se suman dos numeros')
+    resultado =  a + b
+    return resultado
+
+sumatoria = sum(1,4)
+print(sumatoria)
+```
+
+Mejoras al programa  mediante una función es posible abstraer el código que se repite mucho.
+
+```python
+def conversor(tipo_pesos, valor_dolar):
+    pesos = input('¿Cuantos pesos ' + tipo_pesos +' Tienes?: ')
+    pesos = float(pesos)
+    dolares = pesos /  valor_dolar
+    dolares = round(dolares,2)
+    dolares = str(dolares)
+    print("Tienes $ " + dolares + " dólares")
+
+    
+
+menu = """"
+Bienvenido al conversor de monedas 💲 😀 💲
+
+1 - Pesos Colombianos
+2 - Pesos Argentinos
+3 - Pesos Mexicanos
+
+Elige una opción:
+"""
+opcion = int(input(menu))
+
+if opcion == 1:
+    conversor("Colombianos", 3875)
+elif opcion == 2:
+    conversor("Argentinos", 65)
+elif opcion == 3:
+    conversor("Mexicanos", 24)
+else:
+    print("Ingresa una opción correcta")
+```
+
+# 18. **Trabajando con texto: cadenas de caracteres**
+
+Las variables de tipo string tienen bastantes métodos que nos ayuda a cambiar el comportamiento de la variable. Son funciones Built in y hacen parte del lenguaje de programación en sí.
+
+```python
+nombre = input('¿Cual es tu nombre')
+nombre.upper()
+nombre.lower()
+nombre.capitalize()
+nombre.strip()
+nombre.replace('o','a')
+nombre.len()
+nombre[0]
+nombre[1]
+nombre[2]
+
+for c in nombre:
+	print(c)
+```
+
+# 18. **Trabajando con texto: slices**
+
+Slices o rebanadas
+
+Slice se puede usar para truncar el contenido de una variable.
+
+```python
+nombre = 'cristian camilo correa barrera'
+nombre[0:1]
+nombre[:3]
+nombre[1:7]
+#también es posible agregar otro criterio para indicar la canitdad de saltos, de a 1 de a 2 ...
+
+nombre[1:7:2]
+nombre[1:7:3]
+
+#así podemos hacer el reverse de una cadena
+#que vaya del inicio al final pero en reversa
+nombre[::-1]
+
+```
+
+# 20. **Proyecto: palíndromo**
+
+Vamos a crear un programa para que nos diga si una palabra es un palíndromo, es decir que se lee igual al derecho y al revés.
+
+Es importante tener una función `run()` al inicio del código
+
+```python
+def run():
+    pass
+```
+
+Punto de entrada del programa
+
+```python
+if __name__ == '_main_':
+    run()
+```
+
+Una vez python encuentra esta linea de código, comienza a ejecutar todo lo que está debajo.
+
+Es una buena practica dejar dos espacios o saltos de línea después de cada función.
+
+```python
+def palindromo(palabra):
+    palabra = palabra.replace(' ','')
+    palabra = palabra.lower()
+    palabra_ivertida = palabra[::-1]
+    if palabra == palabra_ivertida:
+        return True
+    else:
+        return False
+
+def run():
+    palabra = input('Escribe una palabra: ')
+    es_palindromo = palindromo(palabra)
+    if es_palindromo == True:
+        print('Es palíndromo')
+    else:
+        print('No es palindromo')
+
+if __name__ == '__main__':
+    run()
+```
+
+# 21. **Aprendiendo bucles**
+
+Imaginemos que tenemos un programa que debe ejecutar varios pasos. No es viable ejecutarlo de forma manual. Entonces aquí es donde se hace uso de las estructuras de ciclos *for y while* para los casos en los que queremos repetir los pasos las veces que queramos.
+
+```python
+for n in range(1000):
+    print(2**n)
+
+contador = 0
+print('2 elevado a ' + str(contador) + ' es igual a: ' + str(2**contador)  )
+
+contador = 1
+print('2 elevado a ' + str(contador) + ' es igual a: ' + str(2**contador)  )
+```
+
+# 22. El ciclo while
+
+Es una estructura de control que nos ayuda a crear un bucle para un bloque de código.
+
+```python
+def run():
+    CONS_LIMIT = 1000000
+
+    contador = 0
+    potencia_2 = 2**contador
+    while potencia_2 < CONS_LIMIT:
+        print('2 elevado a ' + str(contador) + ' es igual a: ' + str(potencia_2)  )
+        contador = contador + 1
+        potencia_2 = 2**contador
+
+if __name__ == '__main__':
+    run()
+```
+
+# 23. **Explorando un bucle diferente: el ciclo for**
+
+Es otro tipo de estructura de bucle para crear de forma recursiva series o sucesiones
+
+ 
+
+```python
+#Esto crea los n primeros números
+for n in range(1,1001):
+    print(n)
+```
+
+Así se puede pasar un range a una lista
+
+```python
+a = list(range(1,1000))
+print(a)
+```
+
+# 24. **Recorriendo un string con for**
+
+Las variables de tipo string, funcionan como arreglos y es posible recorrerlos mediante ciclos.
+
+```python
+nombre = input('Escribr tu no nombre: ')
+    for l in nombre:
+        print(l)
+```
+
+# 25. **Interrumpiendo ciclos con break y continue**
+
+Algunas veces queremos interrumpir el código o tener excepciones
