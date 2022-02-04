@@ -477,4 +477,20 @@ nombre = input('Escribr tu no nombre: ')
 
 # 25. **Interrumpiendo ciclos con break y continue**
 
-Algunas veces queremos interrumpir el código o tener excepciones
+Algunas veces queremos interrumpir el código o tener excepciones 
+
+```python
+for contador in range(1000):
+        if contador %2 != 0:
+            continue
+        print(contador)
+```
+
+Otro ejemplo con la palabra brak es 
+
+```python
+for i in range(100000):
+        print(i)
+        if i == 5678:
+            break
+```

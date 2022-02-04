@@ -1,4 +1,21 @@
 def run():
+    # for contador in range(1000):
+    #     if contador %2 != 0:
+    #         continue
+    #     print(contador)
+    # for i in range(100000):
+    #     print(i)
+    #     if i == 5678:
+    #         break
+
+    frase = input('Ingresa una palabra: ')
+    for i in frase:
+        print(i)
+        if i == 'a':
+            break
+
+
+
 
 
 if __name__ == '__main__':
