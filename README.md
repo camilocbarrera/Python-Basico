@@ -1,3 +1,5 @@
+# Curso Básico de Python
+
 # 1. **El arte de la programación**
 
 - El arte de programar es darle instrucciones a la computadora para que resuelva un problema.
@@ -494,3 +496,215 @@ for i in range(100000):
         if i == 5678:
             break
 ```
+
+# 26. ****Proyecto: prueba de primalidad****
+
+Vamos a crear un programa para crear una serie o sucesión de números primos.
+
+Entonces cuando un residuo es diferente de cero, se piensa que no es primo.
+
+```sql
+# sample cases
+# 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+def is_prime(number):
+    counter = 0 
+    for i in range(1, number + 1):
+            if (i == 1 or i == number) and number > 1:
+                continue
+            if number % i != 0 :
+                return True
+            else:
+                return False
+            
+    if counter == 0:
+        return True
+    else: 
+        False
+        
+
+def run():
+    number = input("Please, enter a number: ")
+    numbers = number.split(',')
+    
+    for n in numbers:
+        # print(n)
+        if is_prime(int(n)):
+            print( n +  ' Is prime')
+        else:
+            print( n  + ' Is not a prime number')
+
+if __name__ == '__main__':
+    run()
+```
+
+# 27. ****Proyecto: videojuego****
+
+En esta clase vamos a crear un video juego que adivinará que pensará en número aleatorio y luego debo probar con diferentes números hasta encontrar el número correcto.
+
+```sql
+import random
+
+def adivina_numero(number,random_number):
+    if number < random_number:
+        print("Ingresa un número más grande ")
+    if number > random_number:
+        print("Ingresa un número más pequeño ")
+
+def run():
+    random_number = random.randint(1,100)
+    print('El número aleatorio es: ' + str(random_number) )
+    number = int(input('Elige un número entre el 1 y el 100: '))
+    
+    contador = 0
+    while random_number != number:
+        adivina_numero(number,random_number)
+        number = int(input('Elige Otro número: '))
+        contador += 1
+    print('¡Ganaste! te tomó ' +str(contador+1) + ' Pasos ¿Puedes hacerlo mejor?' )
+
+if __name__ == '__main__':
+    run()
+```
+
+# 28. ****Almacenar varios valores en una variable: listas****
+
+Una variable es cómo una caja para guardar cosas, sin embargo es posible guardar muchas cosas u objetos en estructuras de datos llamados listas. Una estructura de datos son estructuras que nos ayudan a guardar datos de diferentes tipos.
+
+```python
+# Esto es un número
+numero = 4
+
+# Esto es una lista
+numeros = [1, 2, 3, 4]
+
+#¿Cómo accedo a los elementos de una lista?
+
+numeros[0]
+numeros[1]
+numeros[2]
+
+#Las listas (en python) también pueden contener diferentes tipos de datos
+
+lista_con_diferentes_datos = ['Hola', 1, 2, True, False]
+
+#¿Cómo agrego objetos a una lista?
+
+lista_con_diferentes_datos.append('Soy un nuevo string :3')
+
+# ¿Cómo elimino objetos de una lista? 
+# En la función pop se escribe el indice o la posición de lo que queremos eliminar
+lista_con_diferentes_datos.pop(0)
+
+#Como mostrar acceder a una lista mediante un ciclo
+
+for e in lista_con_diferentes_datos:
+		print(e)
+
+#también podemos hacer reverse a los alementos de la lista  (⓿_⓿)
+
+lista_con_diferentes_datos[::-1]
+```
+
+# 29. ****Entendiendo cómo funcionan las tuplas****
+
+Algunas operaciones entre las listas podría sumar
+
+```python
+numeros1 = [1,2,3,4]
+>>> numeros2 = [5,6,7,8] 
+>>> numeros1 + numeros2
+[1, 2, 3, 4, 5, 6, 7, 8]
+
+numeros1 * 5
+
+```
+
+Las tuplas son un tipo de objeto estático, no es posible hacerles apend
+
+ 
+
+Los *strings* (cadenas de caracteres) al igual que las tuplas, también son considerados por python como **inmutables**.
+
+La única manera de modificar el contenido de una variable de tipo string, es reasignando completamente su valor. No es posible realizar cambios individuales en un índice particular.
+
+```python
+mi_tupla = (1,2,3,4,5)
+mi_tupla.append(6)
+
+# Sin embargo puedo recorrerlo y realizar diferentes operaciones con este tipo de dato
+for t in mi_tupla:
+	print(t)
+```
+
+# 30. ****¿Qué son los diccionarios?****
+
+Los diccionarios son otro tipo de estructura de datos, las estructuras de datos en general son muy importantes para aprender.
+
+```python
+mi_diccionario = {
+        'llave1': 1,
+        'llave2': 2,
+        'llave3': 3
+    }
+    # print(mi_diccionario)
+
+    # print(mi_diccionario['llave1'])
+    # print(mi_diccionario['llave2'])
+    # print(mi_diccionario['llave3'])
+    
+poblacion_paises = {
+    'Argentina': 44938712,
+    'Brasil': 210147125,
+    'Colombia': 50372424
+}
+
+#Así podemos acceder a las llaves del diccionario
+
+for pais in poblacion_paises.keys():
+    print(pais,' ', poblacion_paises[pais] )
+
+#Así podemos acceder a los valores del diccionario
+for pais in poblacion_paises.values():
+    print(pais )
+
+#Así podemos acceder tanto a los valores cómo a las llaves del diccionaro
+for pais, poblacion in poblacion_paises.items():
+    print(pais,' tiene ' , poblacion,' habitantes' )
+```
+
+# 31. ****Proyecto: generador de contraseñas****
+
+Este proyecto consiste en generar contraseñas aleatorias para poder poner en practica el uso de listas y ciclos.
+
+```python
+import random
+
+def generate_pass():
+    MAYUS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z']
+    MINUS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'z']
+    NUMS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    CHARS = ['*', '+', '-', '/', '@', '_', '?', '!', '[', '{', '(', ')', '}', ']', ',', ';', '.', '>', '<', '~', '°', '^', '&', '$', '#', '"']
+
+    char_set = MAYUS + MINUS + NUMS + CHARS
+
+    password = []
+
+    for i in range(15):
+        random_char  = random.choice(char_set)
+        password.append(random_char)
+
+    password_str =  ''.join(password)
+    return password_str
+
+def run():
+    password = generate_pass()
+
+    print('Your new password is: ' + password)
+
+if __name__ == '__main__':
+    run()
+```
+
+# 32. ****Sigue aprendiendo****
+
+En este punto ya sabemos lo elemental y básico de python, para poder entender un poco cómo funcionan las principales estructuras de datos.
